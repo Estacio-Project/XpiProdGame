@@ -12,10 +12,10 @@ import org.springframework.web.servlet.i18n.FixedLocaleResolver;
 
 @SpringBootApplication
 /*@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})*/
-@EntityScan(basePackages = { "br.edu.estacio.expiprodgame.bean" })
+/*@EntityScan(basePackages = { "br.edu.estacio.expiprodgame.bean" })
 @EnableJpaRepositories(basePackages = { "br.edu.estacio.expiprodgame.repository" })
 @ComponentScan(basePackages = {"br.edu.estacio.expiprodgame.controller"})
-public class InitApp {
+*/public class InitApp {
 
 	public static void main(String[] args) {
 		SpringApplication.run(InitApp.class, args);

@@ -1,6 +1,5 @@
 package br.edu.estacio.expiprodgame.bean;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -17,27 +16,29 @@ import javax.persistence.OneToOne;
 @Entity
 public class Usuario {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String login;
 	private String senha;
-	private int pontos;
+	private Long pontos;
 	
 
 	// data_cadastro
 	// data_atualizacao
-	// pontos
 	@ManyToMany
 	@JoinTable(name = "usuario_badge", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "badge_id"))
 	private List<Badge> badges;
 
 	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
 	private Cliente cliente;
+	
+	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+	private Alerta alerta;
+	
+	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+	private Fornecedor fornecedor;
 
 	public Usuario() {
 
@@ -100,13 +101,33 @@ public class Usuario {
 	public void setBadges(List<Badge> badges) {
 		this.badges = badges;
 	}
-	public int getPontos() {
+
+	public Long getPontos() {
 		return pontos;
 	}
 
-	public void setPontos(int pontos) {
+	public void setPontos(Long pontos) {
 		this.pontos = pontos;
 	}
+	
+	
+
+	public Alerta getAlerta() {
+		return alerta;
+	}
+
+	public void setAlerta(Alerta alerta) {
+		this.alerta = alerta;
+	}
+
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

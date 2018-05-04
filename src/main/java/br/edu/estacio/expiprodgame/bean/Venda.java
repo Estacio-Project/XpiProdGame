@@ -19,12 +19,13 @@ public class Venda implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 	private String nome;
 	
-	private int desconto;
-	private boolean promocao;
+	private Long desconto;
+	private Boolean promocao;
 	private Date date_inicio_promocao;
+	
 	private Date date_final_promocao;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "fornecedor_id")
@@ -47,7 +48,7 @@ public class Venda implements Serializable {
 	}
 
 	
-	public Venda( String nome, int desconto,
+	public Venda( String nome, Long desconto,
 			boolean promocao, Date date_inicio_promocao,
 			Date date_final_promocao) {
 		super();
@@ -66,18 +67,17 @@ public class Venda implements Serializable {
 
 
 
-	public int getId() {
+
+
+
+	public Long getId() {
 		return id;
 	}
 
 
-
-
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-
-
 
 
 	public String getNome() {
@@ -94,16 +94,18 @@ public class Venda implements Serializable {
 
 
 
-	public int getDesconto() {
+	public void setDesconto(Long desconto) {
+		this.desconto = desconto;
+	}
+
+
+	public Long getDesconto() {
 		return desconto;
 	}
 
 
 
 
-	public void setDesconto(int desconto) {
-		this.desconto = desconto;
-	}
 
 
 
@@ -192,6 +194,30 @@ public class Venda implements Serializable {
 	}
 
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Venda other = (Venda) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
 
 
 	@Override

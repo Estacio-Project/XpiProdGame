@@ -1,6 +1,5 @@
 package br.edu.estacio.expiprodgame.bean;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -13,16 +12,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 @Entity
-public class Conquista implements Serializable {
+public class Conquista  {
 
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 	private String nome;
 	private String descricao;
 	@Temporal(TemporalType.DATE)
@@ -49,10 +45,12 @@ public class Conquista implements Serializable {
 
 		this.data_conquista =new Date();
 	}
-	public int getId() {
+
+	
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNome() {
