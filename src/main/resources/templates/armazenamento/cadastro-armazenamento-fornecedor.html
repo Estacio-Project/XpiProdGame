@@ -9,14 +9,14 @@
 
 		<div class="page-header">
 			<div class="container-fluid">
-				<h1>Cadastro de Usuario</h1>
+				<h1>Cadastro de Armazenamento</h1>
 			</div>
 		</div>
 
 		<div class="container-fluid">
 
 			<form method="POST" class="form-vertical  js-form-loading"
-				th:object="${usuario}" th:action="@{/usuarios/novo}">
+				th:object="${armazenamento}" th:action="@{/armazenamentos/novo}">
 				<div class="alert  alert-danger  alert-dismissible" role="alert"
 					th:if="${#fields.hasAnyErrors()}">
 					<button type="button" class="close" data-dismiss="alert"
@@ -39,19 +39,26 @@
 				<input type="hidden" th:field="*{id}" />
 
 				<div class="form-group">
-					<label for="login">Login</label> <input id="login" type="text"
-						class="form-control" th:field="*{login}" />
+					<label for="nome">Nome</label> <input id="nome" type="text"
+						class="form-control" th:field="*{nome}" />
 				</div>
 
 
 				<div class="form-group">
-					<label for="senha">Senha</label> <input id="senha" type="password"
-						class="form-control" th:field="*{senha}" />
+					<label for="descricao">Descricao</label> <input id="descricao"
+						class="form-control" th:field="*{descricao}" />
 				</div>
+
+		
 				<div class="form-group">
-					<label for="pontos">Pontos</label> <input id="pontos" type="text"
-						class="form-control" th:field="*{pontos}" />
+					<label for="fornecedor">Fornecedores</label> <select
+						id="fornecedor" th:field="*{fornecedor}" class="form-control">
+						<!-- <option value="">--</option> -->
+						<option th:each="fornecedor : ${fornecedores}"
+							th:value="${fornecedor}" th:text="${fornecedor.nome}" />
+					</select>
 				</div>
+
 				<div class="row">
 					<!-- <div class="col-sm-6">
 				<div class="form-group">

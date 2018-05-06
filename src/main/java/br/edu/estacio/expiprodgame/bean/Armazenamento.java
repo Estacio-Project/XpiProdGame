@@ -18,6 +18,7 @@ public class Armazenamento {
 	private Long id;
 	private String nome;
 	private String descricao;
+	private Long quantidade;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "fornecedor_id")
@@ -84,6 +85,12 @@ public class Armazenamento {
 		this.produto = produto;
 	}
 	
+	public Long getQuantidade() {
+		return quantidade;
+	}
+	public void setQuantidade(Long quantidade) {
+		this.quantidade = quantidade;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

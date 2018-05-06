@@ -86,11 +86,13 @@ public class Badge {
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
+	public String info(){
 		return "Badge [id=" + id + ", nome=" + nome + ", descricao="
 				+ descricao + " Usuario[id=" + "]";
+	}
+	@Override
+	public String toString() {
+		return getId().toString();
 	}
 
 }

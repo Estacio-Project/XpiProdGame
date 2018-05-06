@@ -1,7 +1,5 @@
 package br.edu.estacio.expiprodgame.controller;
 
-import java.util.Optional;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.edu.estacio.expiprodgame.bean.Badge;
-import br.edu.estacio.expiprodgame.bean.Usuario;
 import br.edu.estacio.expiprodgame.bean.Usuariobadge;
 import br.edu.estacio.expiprodgame.repository.Badges;
 import br.edu.estacio.expiprodgame.repository.Usuariobadges;
@@ -24,8 +20,8 @@ import br.edu.estacio.expiprodgame.repository.Usuarios;
 import br.edu.estacio.expiprodgame.repository.filter.UsuarioFilter;
 
 @Controller
-@RequestMapping("/usuarios")
-public class UsuariosController {
+@RequestMapping("/usuariobadges")
+public class UsuariobadgesController {
 
 
 	/*@Autowired
@@ -33,49 +29,63 @@ public class UsuariosController {
 	
 	@Autowired
 	private Usuarios usuarios;
+	
+	@Autowired
+	private Badges badges;
+	
+	@Autowired
+	private Usuariobadges usuariobadges;
 
+	
 	@GetMapping("/novo")
-	public ModelAndView novo(Usuario login) {
-		ModelAndView mv = new ModelAndView("usuario/cadastro-usuario");
-		mv.addObject(login);
+	public ModelAndView novo(Usuariobadge usuariobadge) {
+		ModelAndView mv = new ModelAndView("usuariobadge/cadastro-usuariobadge");
+		
+		mv.addObject(usuariobadge);
+		mv.addObject("badges", badges.findAll());
+		mv.addObject("usuarios", usuarios.findAll());
 		
 		return mv;
 	}
 	
 	@PostMapping("/novo")
-	public ModelAndView salvar(@Valid Usuario usuario, BindingResult result, 
+	public ModelAndView salvarUsuariobadge(@Valid Usuariobadge usuariobadge, BindingResult result, 
 			RedirectAttributes attributes) {
 		if (result.hasErrors()) {
-			return novo(usuario);
+			return novo(usuariobadge);
 		}
-		//System.out.println(usuario.toString());
-		usuarios.save(usuario);
-		attributes.addFlashAttribute("mensagem", "Usuario salvo com sucesso!");
-		return new ModelAndView("redirect:/usuarios/novo");
+		//usuariobadge.getUsuario().getBadges().add(usuariobadge.getBadge());
+		usuariobadges.save(usuariobadge);
+		attributes.addFlashAttribute("mensagem", "UsuarioBadge salvo com sucesso!");
+		return new ModelAndView("redirect:/usuariobadges/novo");
 	}
 	
-
 	@GetMapping
-	public ModelAndView pesquisar(UsuarioFilter loginFilter) {
-		ModelAndView mv = new ModelAndView("usuario/pesquisa-usuario");
-		mv.addObject("usuarios", usuarios.findByLoginContainingIgnoreCase(
-				Optional.ofNullable(loginFilter.getLogin()).orElse("%")));
+	public ModelAndView pesquisar(UsuarioFilter usuarioFilter) {
+		ModelAndView mv = new ModelAndView("usuariobadge/pesquisa-usuariobadge");
+	
+		mv.addObject("usuarios", usuarios.findAll());
+		
+		
+		
+		mv.addObject("usuariobadges", usuariobadges.findAll());
+		
 		return mv;
 	}
 	
 	@GetMapping("/{id}")
 	public ModelAndView editar(@PathVariable Long id) {
-		Usuario usuario = usuarios.findOne(id);
+		Usuariobadge usuariobadge = usuariobadges.findOne(id);
 		
-		return novo(usuario);
+		return novo(usuariobadge);
 	}
 	
 	@DeleteMapping("/{id}")
 	public String apagar(@PathVariable Long id, RedirectAttributes attributes) {
 		//usuarioController.excluir(new Usuario(), id.intValue());
-		usuarios.delete(id);
-		attributes.addFlashAttribute("mensagem", "Usuario removido com sucesso");
-		return "redirect:/usuarios";
+		usuariobadges.delete(id);
+		attributes.addFlashAttribute("mensagem", "Usuariobadge removido com sucesso");
+		return "redirect:/usuariobadges";
 	}
 
 	

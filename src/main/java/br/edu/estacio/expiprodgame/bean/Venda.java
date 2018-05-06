@@ -1,6 +1,5 @@
 package br.edu.estacio.expiprodgame.bean;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -10,23 +9,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 @Entity
-public class Venda implements Serializable {
+public class Venda  {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String nome;
-	
+	private String nome;	
 	private Long desconto;
-	private Boolean promocao;
+	
+	private boolean promocao;
+	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date_inicio_promocao;
 	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date_final_promocao;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "fornecedor_id")
 	private Fornecedor fornecedor;
@@ -112,7 +117,7 @@ public class Venda implements Serializable {
 
 
 
-	public boolean isPromocao() {
+	public boolean getPromocao() {
 		return promocao;
 	}
 
@@ -219,17 +224,20 @@ public class Venda implements Serializable {
 		return true;
 	}
 
-
+	public String info(){
+		return "Venda [id=" + id 
+				+ ", nome= " + nome
+				+ ", promocao= " + promocao
+				+ ", date_promocao= " + date_inicio_promocao
+				+ ", data final promocao= " + date_final_promocao
+				+ ", desconto= " + desconto +  ","
+				+ ",Produto[id= "+ (produto != null? produto.getId() :-1)+ "],"
+						+ " Cliente[id= " + (cliente != null? cliente.getId() :-1) + "],"
+						+ " Forncedor[id= " + (fornecedor != null? fornecedor.getId() :-1) + "] ]";
+	}
 	@Override
 	public String toString() {
-		return "Venda [id=" + id 
-				+ ", promocao=" + promocao
-				+ ", date_promocao=" + date_inicio_promocao
-				+ ", data final promocao=" + date_final_promocao
-				+ ", desconto=" + desconto + ", nome=" + nome + ","
-				+ ",Produto[id="+ (produto != null? produto.getId() :-1)+ "],"
-						+ " Cliente[id=" + (cliente != null? cliente.getId() :-1) + "],"
-						+ " Forncedor[id=" + (fornecedor != null? fornecedor.getId() :-1) + "] ]";
+		return getId().toString();
 	}
 	
 	

@@ -1,8 +1,6 @@
 package br.edu.estacio.expiprodgame.repository.filter;
 
-public class UsuarioFilter {
-
-	private String login;
+public class UsuarioBadgeFilter {
 	private Long id;
 
 	public Long getId() {
@@ -12,14 +10,5 @@ public class UsuarioFilter {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-	
 	
 }

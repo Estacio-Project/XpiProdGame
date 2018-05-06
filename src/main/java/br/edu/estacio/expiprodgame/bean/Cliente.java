@@ -99,11 +99,15 @@ public class Cliente implements Serializable{
 		return true;
 	}
 	
-	@Override
-	public String toString() {
+	public String info(){
 		return "Cliente [id=" + id + ", nome=" + nome + ", cpf=" + cpf
 				 + "; Usuario [id=" + (usuario != null ? usuario.getId():-1)  +  "]]";
+		
 	}
+	@Override
+	public String toString() {
+		return id.toString();
+		}
 	
 	
 	

@@ -130,14 +130,17 @@ public class Fornecedor {
 	}
 	
 
-
+	public String info(){
+		return "Fornecedor [id=" + id + ", nome=" + nome + ", cnpj=" + cnpj
+				+ ", Usuario [" + (usuario != null ? usuario.getId():-1) + "] ]";
+	
+	}
 
 
 	@Override
 	public String toString() {
-		return "Fornecedor [id=" + id + ", nome=" + nome + ", cnpj=" + cnpj
-				+ ", Usuario [" + (usuario != null ? usuario.getId():-1) + "] ]";
-	}
+		return getId().toString();
+		}
 
 	
 	

@@ -1,5 +1,6 @@
 package br.edu.estacio.expiprodgame.controller;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -16,6 +17,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.edu.estacio.expiprodgame.bean.Venda;
+import br.edu.estacio.expiprodgame.repository.Clientes;
+import br.edu.estacio.expiprodgame.repository.Fornecedores;
+import br.edu.estacio.expiprodgame.repository.Produtos;
 import br.edu.estacio.expiprodgame.repository.Vendas;
 import br.edu.estacio.expiprodgame.repository.filter.VendaFilter;
 
@@ -30,12 +34,25 @@ public class VendasController {
 	
 	@Autowired
 	private Vendas vendas;
+	
+	@Autowired
+	private Produtos produtos;
+	
+	@Autowired
+	private Fornecedores fornecedores;
+	
+	@Autowired
+	private Clientes clientes;
+	
 
 	@GetMapping("/novo")
 	public ModelAndView novo(Venda venda) {
 		ModelAndView mv = new ModelAndView("venda/cadastro-venda");
 		mv.addObject(venda);
-		
+		mv.addObject("produtos", produtos.findAll());
+		mv.addObject("fornecedores", fornecedores.findAll());
+		mv.addObject("clientes", clientes.findAll());
+	
 		return mv;
 	}
 	
@@ -54,6 +71,8 @@ public class VendasController {
 	@GetMapping
 	public ModelAndView pesquisar(VendaFilter vendaFilter) {
 		ModelAndView mv = new ModelAndView("venda/pesquisa-venda");
+		
+	
 		mv.addObject("vendas", vendas.findByNomeContainingIgnoreCase(
 				Optional.ofNullable(vendaFilter.getNome()).orElse("%")));
 		return mv;

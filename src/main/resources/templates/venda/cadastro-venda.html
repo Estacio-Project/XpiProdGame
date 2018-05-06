@@ -43,22 +43,89 @@
 						class="form-control" th:field="*{nome}" />
 				</div>
 
+				<!-- 				<div class="form-group">
+					<label for="promocao">Promocao</label> <select id="promocao"
+						th:field="*{promocao}">
+						<option value="">--</option>
+						<option th:each="booleano : ${booleanos}" th:value="${booleano}"
+							th:utext="${booleano }" />
+					</select>
+				</div> -->
 
-				<div class="form-group">
-					<label for="desconto">Desconto</label> <input id="desconto"
-						class="form-control" th:field="*{desconto}" />
-				</div>
+				<!-- 	<select class="form-control" th:field="*{promocao}" id="promocao">
+						<option th:value="true" th:text="true" />
+					<option th:value="false" th:text="false" />
+						<option value="null">--</option>
+					   <option th:value="true" >true</option>
+    				   <option th:value="false" >false</option>
 				
+
+				</select> -->
 				<div class="form-group">
-					<label for="date_inicio_promocao">Data Inicio Promocao</label> <input id="date_inicio_promocao"
-						class="form-control" th:field="*{date_inicio_promocao}" />
+					<label for="promocao">Promoção</label> <select class="form-control"
+						th:field="*{promocao}" id="promocao">
+						<option th:value="true" th:text="Sim" />
+						<option th:value="false" th:text="Não" />
+
+					</select>
+				</div>
+				<!-- <div class="form-group">
+					<label for="promocao">Promocao</label> <input id="promocao" type="text"
+						class="form-control" th:field="*{promocao}" />
+				</div> -->
+
+				<!-- <div class="form-group">
+					<label th:for="promocao" th:text="'Promoção:'"></label>
+					<input type="checkbox" th:field="*{promocao}" id="promocao" />
+				</div> -->
+
+				
+					<div class="form-group">
+						<label for="date_inicio_promocao">Data Inicio Promocao</label> <input
+							id="date_inicio_promocao" type="date" class="form-control"
+							th:field="*{date_inicio_promocao}" />
+					</div>
+					
+					
+					<div class="form-group">
+						<label for="date_final_promocao">Data Final Promocao</label> <input
+							id="date_final_promocao" type="date" class="form-control"
+							th:field="*{date_final_promocao}" />
+					</div>
+					<div class="form-group">
+						<label for="desconto">Desconto</label> <input id="desconto"
+							class="form-control" th:field="*{desconto}" />
+					</div>
+				
+
+
+
+
+				<div class="form-group">
+					<label for="produto">Produtos</label> <select id="produto"
+						th:field="*{produto}" class="form-control">
+						<!-- <option value="">--</option> -->
+						<option th:each="produto : ${produtos}" th:value="${produto}"
+							th:text="${produto.nome}" />
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="fornecedor">Fornecedores</label> <select
+						id="fornecedor" th:field="*{fornecedor}" class="form-control">
+						<!-- <option value="">--</option> -->
+						<option th:each="fornecedor : ${fornecedores}"
+							th:value="${fornecedor}" th:text="${fornecedor.nome}" />
+					</select>
 				</div>
 
 				<div class="form-group">
-					<label for="date_final_promocao">Data Inicio Promocao</label> <input id="date_final_promocao"
-						class="form-control" th:field="*{date_final_promocao}" />
+					<label for="cliente">Clientes</label> <select id="cliente"
+						th:field="*{cliente}" class="form-control">
+						<!-- <option value="">--</option> -->
+						<option th:each="cliente : ${clientes}" th:value="${cliente.id}"
+							th:text="${cliente.nome}" />
+					</select>
 				</div>
-
 				<div class="row">
 					<!-- <div class="col-sm-6">
 				<div class="form-group">

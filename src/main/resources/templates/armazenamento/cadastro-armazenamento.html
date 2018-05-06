@@ -45,8 +45,25 @@
 
 
 				<div class="form-group">
-					<label for="cpf">Descricao</label> <input id="cpf"
+					<label for="descricao">Descricao</label> <input id="descricao"
 						class="form-control" th:field="*{descricao}" />
+				</div>
+				
+					<div class="form-group">
+					<label for="produto">Produtos</label> <select id="produto"
+						th:field="*{produto}" class="form-control">
+						<!-- <option value="">--</option> -->
+						<option th:each="produto : ${produtos}" th:value="${produto}"
+							th:text="${produto.nome}" />
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="fornecedor">Fornecedores</label> <select
+						id="fornecedor" th:field="*{fornecedor}" class="form-control">
+						<!-- <option value="">--</option> -->
+						<option th:each="fornecedor : ${fornecedores}"
+							th:value="${fornecedor}" th:text="${fornecedor.nome}" />
+					</select>
 				</div>
 
 				<div class="row">

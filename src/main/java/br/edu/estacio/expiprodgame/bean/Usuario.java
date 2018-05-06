@@ -152,11 +152,15 @@ public class Usuario {
 			return false;
 		return true;
 	}
+	
+	public String info(){
+		return "Usuario [id=" + id + ", login=" + login + ", senha=" + senha
+				+ "]";
+	}
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", login=" + login + ", senha=" + senha
-				+ "]";
+		return getId().toString();
 	}
 
 }
