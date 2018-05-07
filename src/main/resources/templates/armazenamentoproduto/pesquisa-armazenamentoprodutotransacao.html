@@ -15,7 +15,7 @@
 
 		<div class="page-header">
 			<div class="container-fluid">
-				<h1>Pesquisa de UsuarioBadge</h1>
+				<h1>Pesquisa de Armazenamento Produto Transaca</h1>
 			</div>
 		</div>
 
@@ -27,7 +27,7 @@
 			</div>
 
 			<form method="GET" class="form-vertical  js-form-loading"
-				th:object="${usuarioFilter}">
+				th:object="${produtoFilter}">
 				<div class="form-group">
 					<div class="input-group">
 						<!-- <input id="login" type="text" th:field="*{login}" class="form-control" 
@@ -54,34 +54,33 @@
 					<thead class="aw-table-header-solid">
 						<tr>
 							<!-- <th class="av-table-vinhos-col-codigo">Id</th> -->
-							<th class="text-center">Nome Usuario</th>
+							<th class="text-center">Nome Produto</th>
 							<!-- 					<th class="av-table-vinhos-col-tipo">Tipo</th>-->
-							<th class="text-center">Nome Conquista</th>
-							<th class="text-center">Data Recebimento</th>
+							<th class="text-center">Nome Armazenamento</th>
 							<!-- <th class="av-table-vinhos-col-icons" sec:authorize="hasRole('ROLE_CADASTRAR_VINHO')"></th> -->
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="usuariobadge : ${usuariobadges}">
-							<!-- <td th:text="${usuariobadge.id}" class="text-center">1</td>
+						<tr th:each="armazenamentoproduto : ${armazenamentoprodutos}">
+							<!-- <td th:text="${armazenamentoproduto.id}" class="text-center">1</td>
 							<td><a
-								th:href="@{/usuariobadges/{id}(id=${usuariobadge.id})}"
-								th:text="${usuariobadge.usuario.login}"> </a></td> -->
-							<!-- <td th:text="#{|tipoVinho.${usuariobadge.tipo}|}">Tinto</td> -->
-							<!-- <td th:text="|R$${{usuariobadge.valor}}|" class="text-right">55,00</td> -->
-							<td th:text="${usuariobadge.usuario.login}" class="text-center"></td>
-							<td th:text="${usuariobadge.badge.nome}" class="text-center"></td>
-							<td th:text="${#dates.format(usuariobadge.data_recebimento, 'dd/MMM/yyyy')}"
-								class="text-center"></td>
-							<!-- <td  th:text="${usuariobadge != null ? usuariobadge.pontos : 0}" class="text-center">0</td> -->
+								th:href="@{/armazenamentoprodutos/{id}(id=${armazenamentoproduto.id})}"
+								th:text="${armazenamentoproduto.usuario.login}"> </a></td> -->
+							<!-- <td th:text="#{|tipoVinho.${armazenamentoproduto.tipo}|}">Tinto</td> -->
+							<!-- <td th:text="|R$${{armazenamentoproduto.valor}}|" class="text-right">55,00</td> -->
+							<td th:text="${armazenamentoproduto.armazenamento.nome}" class="text-center"></td>
+							<td th:text="${armazenamentoproduto.produto.nome}" class="text-center"></td>
+						<!-- 	<td th:text="${#dates.format(armazenamentoproduto.data_recebimento, 'dd/MMM/yyyy')}" class="text-center"></td>-->
+								
+							<!-- <td  th:text="${armazenamentoproduto != null ? armazenamentoproduto.pontos : 0}" class="text-center">0</td> -->
 							<!-- <td class="text-center"><i class="fa  fa-trash"
 								style="cursor: pointer" data-toggle="modal"
 								data-target="#confirmaExclusaoModal"
-								data:nome="${usuariobadge.id}"
-								data:url-apagar="@{/usuariobadges/{id}(id=${usuariobadge.id})}"></i></td>
+								data:nome="${armazenamentoproduto.id}"
+								data:url-apagar="@{/armazenamentoprodutos/{id}(id=${armazenamentoproduto.id})}"></i></td>
  -->						</tr>
-						<tr th:if="${usuariobadges == null ? true : usuariobadges.empty}">
-							<td colspan="5">Nenhum usuariobadge cadastrado</td>
+						<tr th:if="${armazenamentoprodutos == null ? true : armazenamentoprodutos.empty}">
+							<td colspan="5">Nenhum armazenamentoproduto cadastrado</td>
 						</tr>
 					</tbody>
 				</table>
@@ -92,7 +91,7 @@
 			role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
-					<form th:action="@{/usuariobadges}" method="POST">
+					<form th:action="@{/armazenamentoprodutos}" method="POST">
 						<input type="hidden" name="_method" value="DELETE" />
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal"
@@ -100,7 +99,7 @@
 								<span aria-hidden="true">&times;</span>
 							</button>
 							<h4 class="modal-title" id="myModalLabel">Excluir
-								UsuarioBadge</h4>
+								Armazenamnto Badge</h4>
 						</div>
 						<div class="modal-body">
 							<span>Tem certeza?</span>

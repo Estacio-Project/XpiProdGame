@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -31,11 +32,16 @@ public class Usuario {
 	@JoinTable(name = "usuario_badge", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "badge_id"))
 	private List<Badge> badges;
 
+	@ManyToMany
+	@JoinTable(name = "usuario_conquista", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "conquista_id"))
+	private List<Conquista> conquistas;
+
+	
 	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
 	private Cliente cliente;
 	
-	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-	private Alerta alerta;
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Alerta> alerta;
 	
 	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
 	private Fornecedor fornecedor;
@@ -112,11 +118,12 @@ public class Usuario {
 	
 	
 
-	public Alerta getAlerta() {
+
+	public List<Alerta> getAlerta() {
 		return alerta;
 	}
 
-	public void setAlerta(Alerta alerta) {
+	public void setAlerta(List<Alerta> alerta) {
 		this.alerta = alerta;
 	}
 

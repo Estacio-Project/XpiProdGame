@@ -116,12 +116,15 @@ public class Armazenamento {
 		return true;
 	}
 
-	@Override
-	public String toString() {
+	public String info(){
 		return "Armazenamento [id=" + id + ", nome=" + nome + ", descricao="
 				+ descricao + ",Produto[id="+ (produto != null? produto.getId() :-1)+ "],"
 						+ " Cliente[id=" + (cliente != null? cliente.getId() :-1) + "],"
 						+ " Forncedor[id=" + (fornecedor != null? fornecedor.getId() :-1) + "] ]";
+	}
+	@Override
+	public String toString() {
+		return getId().toString();
 	}
 	
 }

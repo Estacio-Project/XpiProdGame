@@ -1,6 +1,5 @@
 package br.edu.estacio.expiprodgame.bean;
 
-
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -9,12 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Alerta{
+public class Alerta {
 	/**
 	 * 
 	 */
@@ -23,35 +23,27 @@ public class Alerta{
 	private Long id;
 	private String nome;
 	private String descricao;
+
 	@Temporal(TemporalType.DATE)
 	private Date data_expiracao;
+
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "monitorconsumo_id")
-	private Monitorconsumo monitorconsumo;
-
+	/* @OneToOne(fetch = FetchType.LAZY) */
+	/*
+	 * @JoinColumns({
+	 * 
+	 * @JoinColumn(name = "armazenamento_id", insertable = false, updatable =
+	 * false),
+	 * 
+	 * @JoinColumn(name = "produto_id", insertable = false, updatable = false)
+	 * })
+	 */
 	public Alerta() {
 		super();
 	}
-
-	public Alerta(String nome, String descricao, Date data_expiracao) {
-		super();
-		this.nome = nome;
-		this.descricao = descricao;
-		this.data_expiracao = data_expiracao;
-	}
-
-	public Alerta(Long id, String nome, String descricao, Date data_expiracao) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.descricao = descricao;
-		this.data_expiracao = data_expiracao;
-	}
-
 
 	public Long getId() {
 		return id;
@@ -84,6 +76,14 @@ public class Alerta{
 	public void setData_expiracao(Date data_expiracao) {
 		this.data_expiracao = data_expiracao;
 	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	@Override
 	public int hashCode() {
@@ -109,13 +109,17 @@ public class Alerta{
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
+
+	public String info() {
 		return "Alerta [id=" + id + ", descricao=" + descricao
 				+ ", data_expiracao=" + data_expiracao + ", Monitorconsumo[id="
-				+ (monitorconsumo != null ? monitorconsumo.getId() : -1)
 				+ "], Usuario[id=" + (usuario != null ? usuario.getId() : -1)
 				+ "]]";
+	}
+
+	@Override
+	public String toString() {
+		return getId().toString();
 	}
 
 }

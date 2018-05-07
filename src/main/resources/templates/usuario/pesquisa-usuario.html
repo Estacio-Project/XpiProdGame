@@ -63,7 +63,7 @@
 					<!-- <td th:text="#{|tipoVinho.${usuario.tipo}|}">Tinto</td> -->
 					<!-- <td th:text="|R$${{usuario.valor}}|" class="text-right">55,00</td> -->
 					<td th:text="${usuario.senha}" class="text-center">******</td>
-					<!-- <td  th:text="${usuario != null ? usuario.pontos : 0}" class="text-center">0</td> -->
+					<td th:if="${usuario != null ? true:false}" th:text="${usuario.pontos}" class="text-center">0</td> 
 					<td class="text-center">
 						<i class="fa  fa-trash" style="cursor:pointer"
 							data-toggle="modal" data-target="#confirmaExclusaoModal"

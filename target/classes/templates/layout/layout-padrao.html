@@ -60,84 +60,103 @@
 
 				<nav class="aw-menu  js-menu">
 					<ul class="aw-menu__list">
+						<li class="aw-menu__item"><a
+							th:href="@{/http://localhost:8080/armazenamentoprodutos/monitorar-produto-armazenamento}"><i
+								class="fa  fa-fw  fa-home"></i><span>Monitor Armazenamento P/ Gerar Alerta</span></a></li>
+									
+						<li class="aw-menu__item"><a
+							th:href="@{/armazenamentoprodutos/novo}"><i
+								class="fa  fa-fw  fa-home"></i><span> Armazenamento Produto
+									Avulso - ( Cadastro )</span></a></li>
+									
+						<li class="aw-menu__item"><a
+							th:href="@{/armazenamentoprodutos/novo-produto-transacao}"><i
+								class="fa  fa-fw  fa-home"></i><span> Armazenamento Produto
+									Transacao - ( Cadastro )</span></a></li>
+						
+						<li class="aw-menu__item"><a th:href="@{/armazenamentoprodutos}"><i
+								class="fa  fa-fw  fa-home"></i><span> Armazenamento - 
+									(Pesquisa)</span></a></li>
+
+
 						<li class="aw-menu__item"><a th:href="@{/usuariobadges/novo}"><i
-								class="fa  fa-fw  fa-home"></i><span>Cadastrar Usuario Badge</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span>Usuario Badge - (Cadastro) </span></a></li>
 
 						<li class="aw-menu__item"><a th:href="@{/usuariobadges}"><i
-								class="fa  fa-fw  fa-home"></i><span>Pesquisa Usuario Badge</span></a></li>
-			
+								class="fa  fa-fw  fa-home"></i><span>Usuario Badge - (Pesquisa)</span></a></li>
+								
+								<li class="aw-menu__item"><a th:href="@{/usuarioconquistas/novo}"><i
+								class="fa  fa-fw  fa-home"></i><span>Usuario Consquista - (Cadastro) </span></a></li>
+
+						<li class="aw-menu__item"><a th:href="@{/usuarioconquistas}"><i
+								class="fa  fa-fw  fa-home"></i><span>Usuario Conquistas - (Pesquisa)</span></a></li>
+								
+
 						<li class="aw-menu__item"><a
 							th:href="@{/armazenamentos/novo-cliente}"><i
 								class="fa  fa-fw  fa-home"></i><span> Armazenamento
-									Cliente</span></a></li>
+									Cliente - ( Cadastro )</span></a></li>
 
 						<li class="aw-menu__item"><a
 							th:href="@{/armazenamentos/novo-fornecedor}"><i
-								class="fa  fa-fw  fa-home"></i><span>
-									Armazenamento Fornecedor</span></a></li>
-
-					<li class="aw-menu__item"><a
-							th:href="@{/armazenamentos/novo}"><i
 								class="fa  fa-fw  fa-home"></i><span> Armazenamento
-									Pesquisa</span></a></li>
+									Fornecedor - ( Cadastro )</span></a></li>
+
+						<li class="aw-menu__item"><a
+							th:href="@{/armazenamentos/novo}"><i
+								class="fa  fa-fw  fa-home"></i><span> Armazenamento Avulso
+									- ( Cadastro )</span></a></li>
 						<li class="aw-menu__item"><a th:href="@{/armazenamentos}"><i
-								class="fa  fa-fw  fa-home"></i><span>
-									Armazenamento Pesquisa</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span> Armazenamento
+									- ( Pesquisa )</span></a></li>
 
 
 
 						<li class="aw-menu__item"><a th:href="@{/usuarios/novo}"><i
-								class="fa  fa-fw  fa-home"></i><span>Cadastrar Usuario</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span> Usuario - ( Cadastro )</span></a></li>
 
 						<li class="aw-menu__item"><a th:href="@{/usuarios}"><i
-								class="fa  fa-fw  fa-home"></i><span>Pesquisa Usuario</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span>Usuario - ( Pesquisa )</span></a></li>
 						<li class="aw-menu__item"><a th:href="@{/clientes/novo}"><i
-								class="fa  fa-fw  fa-home"></i><span>Cadastrar Cliente</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span>Cliente - ( Cadastro )</span></a></li>
 
 						<li class="aw-menu__item"><a th:href="@{/clientes}"><i
-								class="fa  fa-fw  fa-home"></i><span>Pesquisa Cliente</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span>Cliente - ( Pesquisa )</span></a></li>
 
 						<li class="aw-menu__item"><a th:href="@{/fornecedores/novo}"><i
-								class="fa  fa-fw  fa-home"></i><span>Cadastrar Fornecedor</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span>Fornecedor - ( Cadastro )</span></a></li>
 
 						<li class="aw-menu__item"><a th:href="@{/fornecedores}"><i
-								class="fa  fa-fw  fa-home"></i><span>Pesquisa Fornecedor</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span>Fornecedor - ( Pesquisa )</span></a></li>
 
 
 						<li class="aw-menu__item"><a th:href="@{/produtos/novo}"><i
-								class="fa  fa-fw  fa-home"></i><span>Cadastrar Produto</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span>Produto - ( Cadastro )</span></a></li>
 
 						<li class="aw-menu__item"><a th:href="@{/produtos}"><i
-								class="fa  fa-fw  fa-home"></i><span>Pesquisa Produto</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span>Produto  - ( Pesquisa )</span></a></li>
 
 						<li class="aw-menu__item"><a th:href="@{/alertas/novo}"><i
-								class="fa  fa-fw  fa-home"></i><span>Cadastrar Alerta</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span> Alerta  - ( Cadastro )</span></a></li>
 						<li class="aw-menu__item"><a th:href="@{/alertas}"><i
-								class="fa  fa-fw  fa-home"></i><span>Pesquisa Alerta</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span>Alerta  - ( Pesquisa )</span></a></li>
 
-						<li class="aw-menu__item"><a
-							th:href="@{/monitorconsumos/novo}"><i
-								class="fa  fa-fw  fa-home"></i><span>Cadastrar
-									MonitorConsumo</span></a></li>
-						<li class="aw-menu__item"><a th:href="@{/monitorconsumos}"><i
-								class="fa  fa-fw  fa-home"></i><span>Pesquisa
-									MonitorConsumo</span></a></li>
 
-	
+
 						<li class="aw-menu__item"><a th:href="@{/badges/novo}"><i
-								class="fa  fa-fw  fa-home"></i><span>Cadastrar Badge</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span>Badge - ( Cadastro )</span></a></li>
 						<li class="aw-menu__item"><a th:href="@{/badges}"><i
-								class="fa  fa-fw  fa-home"></i><span>Pesquisa Badge</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span>Badge - ( Pesquisa )</span></a></li>
 
 						<li class="aw-menu__item"><a th:href="@{/conquistas/novo}"><i
-								class="fa  fa-fw  fa-home"></i><span>Cadastrar Conquista</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span>Conquista - ( Cadastro )</span></a></li>
 						<li class="aw-menu__item"><a th:href="@{/conquistas}"><i
-								class="fa  fa-fw  fa-home"></i><span>Pesquisa Conquista</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span>Conquista -( Pesquisa )</span></a></li>
 
 						<li class="aw-menu__item"><a th:href="@{/vendas/novo}"><i
-								class="fa  fa-fw  fa-home"></i><span>Cadastrar Venda</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span>Venda - ( Cadastro )</span></a></li>
 						<li class="aw-menu__item"><a th:href="@{/vendas}"><i
-								class="fa  fa-fw  fa-home"></i><span>Pesquisa Venda</span></a></li>
+								class="fa  fa-fw  fa-home"></i><span>Venda -( Pesquisa )</span></a></li>
 
 
 					</ul>

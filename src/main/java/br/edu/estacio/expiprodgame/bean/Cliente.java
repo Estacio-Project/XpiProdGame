@@ -1,6 +1,5 @@
 package br.edu.estacio.expiprodgame.bean;
 
-import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,13 +10,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Cliente implements Serializable{
-	private static final long serialVersionUID = 1L;
+public class Cliente{
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String nome;
 	private String cpf;
+	private Integer idade;
+	private String endereco;
+	private String telefone;
+	
 	//idade
 	//endereco
 	//telefone
@@ -74,6 +77,44 @@ public class Cliente implements Serializable{
 		this.usuario = usuario;
 	}
 	
+	
+	
+	public Integer getIdade() {
+		return idade;
+	}
+
+
+
+	public void setIdade(Integer idade) {
+		this.idade = idade;
+	}
+
+
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

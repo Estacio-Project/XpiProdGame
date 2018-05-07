@@ -60,7 +60,7 @@ public class ArmazenamentosController {
 		//System.out.println(armazenamento.toString());
 		armazenamentos.save(armazenamento);
 		attributes.addFlashAttribute("mensagem", "Armazenamento salvo com sucesso!");
-		return new ModelAndView("redirect:/armazenamentos/novo");
+		return new ModelAndView("redirect:/armazenamento/novo");
 	}
 	
 	@GetMapping("/novo-fornecedor")
@@ -80,13 +80,13 @@ public class ArmazenamentosController {
 		//System.out.println(armazenamento.toString());
 		armazenamentos.save(armazenamento);
 		attributes.addFlashAttribute("mensagem", "Armazenamento salvo com sucesso!");
-		return new ModelAndView("redirect:/armazenamentos/novo");
+		return new ModelAndView("redirect:/armazenamento/novo");
 	}
 	
 	@GetMapping
 	public ModelAndView pesquisar(ArmazenamentoFilter armazenamentoFilter) {
 		ModelAndView mv = new ModelAndView("armazenamento/pesquisa-armazenamento");
-		mv.addObject("armazenamentos", armazenamentos.findByNomeContainingIgnoreCase(
+		mv.addObject("armazenamento", armazenamentos.findByNomeContainingIgnoreCase(
 				Optional.ofNullable(armazenamentoFilter.getNome()).orElse("%")));
 		return mv;
 	}
@@ -109,7 +109,7 @@ public class ArmazenamentosController {
 		//System.out.println(armazenamento.toString());
 		armazenamentos.save(armazenamento);
 		attributes.addFlashAttribute("mensagem", "Armazenamento salvo com sucesso!");
-		return new ModelAndView("redirect:/armazenamentos/novo");
+		return new ModelAndView("redirect:/armazenamento/novo");
 	}
 	@GetMapping("/{id}")
 	public ModelAndView editar(@PathVariable Long id) {
@@ -121,7 +121,7 @@ public class ArmazenamentosController {
 	public String apagar(@PathVariable Long id, RedirectAttributes attributes) {
 		armazenamentos.delete(id);
 		attributes.addFlashAttribute("mensagem", "Armazenamento removido com sucesso");
-		return "redirect:/armazenamentos";
+		return "redirect:/armazenamento";
 	}
 
 	

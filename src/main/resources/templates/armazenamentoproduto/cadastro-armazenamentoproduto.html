@@ -9,14 +9,15 @@
 
 		<div class="page-header">
 			<div class="container-fluid">
-				<h1>Cadastro de Cliente</h1>
+				<h1>Cadastro de Armazenamento Produto Avulso</h1>
 			</div>
 		</div>
 
 		<div class="container-fluid">
 
 			<form method="POST" class="form-vertical  js-form-loading"
-				th:object="${cliente}" th:action="@{/clientes/novo}">
+				th:object="${armazenamentoproduto}"
+				th:action="@{/armazenamentoprodutos/novo}">
 				<div class="alert  alert-danger  alert-dismissible" role="alert"
 					th:if="${#fields.hasAnyErrors()}">
 					<button type="button" class="close" data-dismiss="alert"
@@ -35,50 +36,24 @@
 					th:if="${!#strings.isEmpty(mensagem)}">
 					<span th:text="${mensagem}"></span>
 				</div>
-
-				<input type="hidden" th:field="*{id}" />
-
 				<div class="form-group">
-					<label for="nome">Nome</label> <input id="nome" type="text"
-						class="form-control" th:field="*{nome}" />
-				</div>
-
-
-				<div class="form-group">
-					<label for="cpf">CPF</label> <input id="cpf"
-						class="form-control" th:field="*{cpf}" />
-				</div>
-				
-			
-				
-				<div class="form-group">
-					<label for="idade">Idade</label> <input id="idade"
-						class="form-control" th:field="*{idade}" />
-				</div>
-				
-				
-				<div class="form-group">
-					<label for="endereco">Endereco</label> <input id="endereco"
-						class="form-control" th:field="*{endereco}" />
-				</div>
-				
-				<div class="form-group">
-					<label for="telefone">Telefone</label> <input id="telefone"
-						class="form-control" th:field="*{telefone}" />
-				</div>
-				<div class="row">
-					<!-- <div class="col-sm-6">
-				<div class="form-group">
-					<label for="tipo">Tipo</label>
-					<select id="tipo" class="form-control" th:field="*{tipo}">
-						<option value="">Selecione o tipo</option>
-						<option th:each="tipo : ${tipos}" th:value="${tipo}" th:text="#{|tipoVinho.${tipo}|}"></option>
+					<label for="armazenamento">Armazenamentos</label> <select
+						id="armazenamento" name="armazenamento" class="form-control"
+						th:field="*{armazenamento}">
+						<option th:each="armazenamento : ${armazenamentos}"
+							th:value="${armazenamento}" th:text="${armazenamento.nome}" />
 					</select>
 				</div>
-			</div>
-			 -->
-					<div class="col-sm-6"></div>
+				<div class="form-group">
+					<label for="produto">Produtos</label> <select id="produto"
+						class="form-control" name="produto" th:field="*{produto}">
+						<option th:each="produto : ${produtos}" th:value="${produto}"
+							th:text="${produto.nome}" />
+					</select>
 				</div>
+
+
+
 
 				<div class="form-group">
 					<button class="btn  btn-primary" type="submit">Salvar</button>

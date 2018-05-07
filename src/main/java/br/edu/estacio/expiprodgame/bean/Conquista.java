@@ -1,6 +1,7 @@
 package br.edu.estacio.expiprodgame.bean;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,30 +23,15 @@ public class Conquista  {
 	private Long id;
 	private String nome;
 	private String descricao;
-	@Temporal(TemporalType.DATE)
-	private Date data_conquista;
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "usuario_id")
-	private Usuario usuario;
+	
+	@ManyToMany(mappedBy = "badges")
+	private List<Usuario> usuarios;
 	
 	
 	public Conquista() {
 		super();
 	}
-	public Conquista(String nome, String descricao, Usuario usuario, Date data_conquista) {
-		super();
-		this.nome = nome;
-		this.descricao = descricao;
-		this.usuario = usuario;
-		this.data_conquista = data_conquista;
-	}
-	public Conquista(String nome, String descricao) {
-		// TODO Auto-generated constructor stub
-		this.nome = nome;
-		this.descricao = descricao;
-
-		this.data_conquista =new Date();
-	}
+	
 
 	
 	public Long getId() {
@@ -65,27 +52,20 @@ public class Conquista  {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Usuario getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+
+	
+
+	
+	public String info() {
+		return "Conquista [id=" + id + ", nome=" + nome + ", descricao="
+				+ descricao +  " ]";
 	}
 	
-	
-	public Date getData_conquista() {
-		return data_conquista;
-	}
-	public void setData_conquista(Date data_conquista) {
-		this.data_conquista = data_conquista;
-	}
 	@Override
 	public String toString() {
-		return "Conquista [id=" + id + ", nome=" + nome + ", descricao="
-				+ descricao +  ", Usuario[id=" + (usuario != null? usuario.getId() :-1) + "] ]";
+		return getId().toString();
 	}
-	
-	
+
 	
 	
 }

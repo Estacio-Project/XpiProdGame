@@ -19,9 +19,11 @@ public class Fornecedor {
 	private Long id;
 	private String nome;
 	private String cnpj;
+	private String razao_social;
+	private String endereco;
+	private String telefone;
 	
-	
-	//razao_social
+			//razao_social
 			//endereco
 			//telefone
 			//email
@@ -102,6 +104,43 @@ public class Fornecedor {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
+	
+
+	public String getRazao_social() {
+		return razao_social;
+	}
+
+
+
+	public void setRazao_social(String razao_social) {
+		this.razao_social = razao_social;
+	}
+
+
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
 
 
 	@Override
